@@ -42,8 +42,34 @@
 --
 --  `:lua require('lush').ify()`
 
+vim.o.background = 'dark'
+vim.o.termguicolors = true
+
 local lush = require('lush')
 local hsl = lush.hsl
+
+local s_italic = "italic"
+local s_bold   = "bold"
+
+local s_base00 = hsl('#303841') -- prev #1b2b34
+local s_base01 = hsl('#343d46')
+local s_base02 = hsl('#4f5b66')
+local s_base03 = hsl('#65737e')
+local s_base04 = hsl('#a7adba')
+local s_base05 = hsl('#c0c5ce')
+local s_base06 = hsl('#cdd3de')
+local s_base07 = hsl('#d8dee9')
+local s_red    = hsl('#ec5f67')
+local s_orange = hsl('#f99157')
+local s_yellow = hsl('#fac863')
+local s_green  = hsl('#99c794')
+local s_cyan   = hsl('#62b3b2')
+local s_blue   = hsl('#6699cc')
+local s_purple = hsl('#c594c5')
+local s_brown  = hsl('#ab7967')
+local s_white  = hsl('#ffffff')
+local s_none   = ''
+
 
 local theme = lush(function()
   return {
@@ -58,6 +84,258 @@ local theme = lush(function()
     -- You can uncomment these and leave them empty to disable any
     -- styling for that group (meaning they mostly get styled as Normal)
     -- or leave them commented to apply vims default colouring or linking.
+
+
+            Bold                                {                               gui = s_bold,              },
+            Debug                               { fg = s_red,                                              },
+            Directory                           { fg = s_blue,                                             },
+            ErrorMsg                            { fg = s_red,    bg = s_base00,                            },
+            Exception                           { fg = s_red,                                              },
+            FoldColumn                          { fg = s_blue,   bg = s_base00,                            },
+            Folded                              { fg = s_base03, bg = s_base01, gui = s_italic,            },
+            IncSearch                           { fg = s_base01, bg = s_orange, gui = '',                  },
+            Italic                              {                               gui = s_italic,            },
+
+            Macro                               { fg = s_red,                                              },
+            MatchParen                          { fg = s_base05, bg = s_base03,                            },
+            ModeMsg                             { fg = s_green,                                            },
+            MoreMsg                             { fg = s_green,                                            },
+            Question                            { fg = s_blue,                                             },
+            Search                              { fg = s_base03, bg = s_yellow,                            },
+            SpecialKey                          { fg = s_base03,                                           },
+            TooLong                             { fg = s_red,                                              },
+            Underlined                          { fg = s_red,                                              },
+            Visual                              {                bg = s_base02,                            },
+            VisualNOS                           { fg = s_red,                                              },
+            WarningMsg                          { fg = s_red,                                              },
+            WildMenu                            { fg = s_base07, bg = s_blue,                              },
+            Title                               { fg = s_blue,                                             },
+            Conceal                             { fg = s_blue,   bg = s_base00,                            },
+            Cursor                              { fg = s_base00, bg = s_base05,                            },
+            NonText                             { fg = s_base03,                                           },
+            Normal                              { fg = s_base07, bg = s_base00,                            },
+            EndOfBuffer                         { fg = s_base05, bg = s_base00,                            },
+            LineNr                              { fg = s_base03, bg = s_base00,                            },
+            SignColumn                          { fg = s_base00, bg = s_base00,                            },
+            StatusLine                          { fg = s_base01, bg = s_base03,                            },
+            StatusLineNC                        { fg = s_base03, bg = s_base01,                            },
+            VertSplit                           { fg = s_base00, bg = s_base02,                            },
+            ColorColumn                         {                bg = s_base01,                            },
+            CursorColumn                        {                bg = s_base01,                            },
+            CursorLine                          {                bg = s_base01, gui = '',                  },
+            CursorLineNR                        { fg = s_base00, bg = s_base00,                            },
+            CursorLineNr                        { fg = s_base03, bg = s_base01,                            },
+            PMenu                               { fg = s_base04, bg = s_base01,                            },
+            PMenuSel                            { fg = s_base07, bg = s_blue,                              },
+            PmenuSbar                           {                bg = s_base02,                            },
+            PmenuThumb                          {                bg = s_base07,                            },
+            TabLine                             { fg = s_base03, bg = s_base01,                            },
+            TabLineFill                         { fg = s_base03, bg = s_base01,                            },
+            TabLineSel                          { fg = s_green,  bg = s_base01,                            },
+            helpExample                         { fg = s_yellow,                                           },
+            helpCommand                         { fg = s_yellow,                                           },
+
+  -- Standard syntax highlighting
+            Boolean                             { fg = s_orange,                                           },
+            Character                           { fg = s_red,                                              },
+            Comment                             { fg = s_base03,                gui = s_italic,            },
+            Conditional                         { fg = s_purple,                                           },
+            Constant                            { fg = s_orange,                                           },
+            Define                              { fg = s_purple,                                           },
+            Delimiter                           { fg = s_brown,                                            },
+            Float                               { fg = s_orange,                                           },
+            Function                            { fg = s_blue,                                             },
+
+            Identifier                          { fg = s_cyan,                                             },
+            Include                             { fg = s_blue,                                             },
+            Keyword                             { fg = s_purple,                                           },
+
+            Label                               { fg = s_yellow,                                           },
+            Number                              { fg = s_orange,                                           },
+            Operator                            { fg = s_base05,                                           },
+            PreProc                             { fg = s_yellow,                                           },
+            Repeat                              { fg = s_yellow,                                           },
+            Special                             { fg = s_cyan,                                             },
+            SpecialChar                         { fg = s_brown,                                            },
+            Statement                           { fg = s_red,                                              },
+            StorageClass                        { fg = s_yellow,                                           },
+            String                              { fg = s_green,                                            },
+            Structure                           { fg = s_purple,                                           },
+            Tag                                 { fg = s_yellow,                                           },
+            Todo                                { fg = s_yellow, bg = s_base01,                            },
+            Type                                { fg = s_yellow,                                           },
+            Typedef                             { fg = s_yellow,                                           },
+
+  -- LSP
+            LspDiagnosticsDefaultError          {                                                          },
+            LspDiagnosticsSignError             { fg = s_red,                                              },
+            LspDiagnosticsUnderlineError        {                               gui = 'undercurl',         },
+
+            LspDiagnosticsDefaultWarning        {                                                          },
+            LspDiagnosticsSignWarning           { fg = s_yellow,                                           },
+            LspDiagnosticsUnderlineWarning      {                               gui = 'undercurl',         },
+
+            LspDiagnosticsDefaultInformation    {                                                          },
+            LspDiagnosticsSignInformation       { fg = s_blue,                                             },
+            LspDiagnosticsUnderlineInformation  {                               gui = 'undercurl',         },
+
+            LspDiagnosticsDefaultHint           {                                                          },
+            LspDiagnosticsSignHint              { fg = s_cyan,                                             },
+            LspDiagnosticsUnderlineHint         {                               gui = 'undercurl',         },
+
+
+  -- TreeSitter stuff
+            TSInclude                           { fg = s_cyan,                                             },
+            TSPunctBracket                      { fg = s_cyan,                                             },
+            TSPunctDelimiter                    { fg = s_base07,                                           },
+            -- TSParameter                         { fg = s_base07,                                           },
+            TSType                              { fg = s_blue,                                             },
+            TSFunction                          { fg = s_cyan,                                             },
+
+            TSTagDelimiter                      { fg = s_cyan,                                             },
+            TSProperty                          { fg = s_yellow,                                           },
+            TSMethod                            { fg = s_blue,                                             },
+            TSParameter                         { fg = s_yellow,                                           },
+            TSConstructor                       { fg = s_base07,                                           },
+            TSVariable                          { fg = s_base07,                                           },
+            TSOperator                          { fg = s_base07,                                           },
+            TSTag                               { fg = s_base07,                                           },
+            TSKeyword                           { fg = s_purple,                                           },
+            TSKeywordOperator                   { fg = s_purple,                                           },
+            TSVariableBuiltin                   { fg = s_red,                                              },
+            TSLabel                             { fg = s_cyan,                                             },
+
+            SpellBad                            {                               gui = 'undercurl',         },
+            SpellLocal                          {                               gui = 'undercurl',         },
+            SpellCap                            {                               gui = 'undercurl',         },
+            SpellRare                           {                               gui = 'undercurl',         },
+
+            csClass                             { fg = s_yellow,                                           },
+            csAttribute                         { fg = s_yellow,                                           },
+            csModifier                          { fg = s_purple,                                           },
+            csType                              { fg = s_red,                                              },
+            csUnspecifiedStatement              { fg = s_blue,                                             },
+            csContextualStatement               { fg = s_purple,                                           },
+            csNewDecleration                    { fg = s_red,                                              },
+            cOperator                           { fg = s_cyan,                                             },
+            cPreCondit                          { fg = s_purple,                                           },
+
+            cssColor                            { fg = s_cyan,                                             },
+            cssBraces                           { fg = s_base05,                                           },
+            cssClassName                        { fg = s_purple,                                           },
+
+
+            DiffAdd                             { fg = s_green,  bg = s_base01, gui = s_bold,              },
+            DiffChange                          { fg = s_base03, bg = s_base01,                            },
+            DiffDelete                          { fg = s_red,    bg = s_base01,                            },
+            DiffText                            { fg = s_blue,   bg = s_base01,                            },
+            DiffAdded                           { fg = s_base07, bg = s_green,  gui = s_bold,              },
+            DiffFile                            { fg = s_red,    bg = s_base00,                            },
+            DiffNewFile                         { fg = s_green,  bg = s_base00,                            },
+            DiffLine                            { fg = s_blue,   bg = s_base00,                            },
+            DiffRemoved                         { fg = s_base07, bg = s_red,    gui = s_bold,              },
+
+            gitCommitOverflow                   { fg = s_red,                                              },
+            gitCommitSummary                    { fg = s_green,                                            },
+
+            htmlBold                            { fg = s_yellow,                                           },
+            htmlItalic                          { fg = s_purple,                                           },
+            htmlTag                             { fg = s_cyan,                                             },
+            htmlEndTag                          { fg = s_cyan,                                             },
+            htmlArg                             { fg = s_yellow,                                           },
+            htmlTagName                         { fg = s_base07,                                           },
+
+            javaScript                          { fg = s_base05,                                           },
+            javaScriptNumber                    { fg = s_orange,                                           },
+            javaScriptBraces                    { fg = s_base05,                                           },
+
+            jsonKeyword                         { fg = s_green,                                            },
+            jsonQuote                           { fg = s_green,                                            },
+
+            markdownCode                        { fg = s_green,                                            },
+            markdownCodeBlock                   { fg = s_green,                                            },
+            markdownHeadingDelimiter            { fg = s_blue,                                             },
+            markdownItalic                      { fg = s_purple,                gui = s_italic,            },
+            markdownBold                        { fg = s_yellow,                gui = s_bold,              },
+            markdownCodeDelimiter               { fg = s_brown,                 gui = s_italic,            },
+            markdownError                       { fg = s_base05, bg = s_base00,                            },
+
+            typescriptParens                    { fg = s_base05, bg = s_none,                              },
+
+            NeomakeErrorSign                    { fg = s_red,    bg = s_base00,                            },
+            NeomakeWarningSign                  { fg = s_yellow, bg = s_base00,                            },
+            NeomakeInfoSign                     { fg = s_white,  bg = s_base00,                            },
+            NeomakeError                        { fg = s_red,                   gui = 'underline', sp = s_red },
+            NeomakeWarning                      { fg = s_red,                   gui = 'underline', sp = s_red },
+
+            ALEErrorSign                        { fg = s_red,    bg = s_base00, gui = s_bold,              },
+            ALEWarningSign                      { fg = s_yellow, bg = s_base00, gui = s_bold,              },
+            ALEInfoSign                         { fg = s_white,  bg = s_base00, gui = s_bold,              },
+
+            NERDTreeExecFile                    { fg = s_base05,                                           },
+            NERDTreeDirSlash                    { fg = s_blue,                                             },
+            NERDTreeOpenable                    { fg = s_blue,                                             },
+            NERDTreeFile                        {                bg = s_none,                              },
+            NERDTreeFlags                       { fg = s_blue,                                             },
+
+            phpComparison                       { fg = s_base05,                                           },
+            phpParent                           { fg = s_base05,                                           },
+            phpMemberSelector                   { fg = s_base05,                                           },
+
+            pythonRepeat                        { fg = s_purple,                                           },
+            pythonOperator                      { fg = s_purple,                                           },
+
+            rubyConstant                        { fg = s_yellow,                                           },
+            rubySymbol                          { fg = s_green,                                            },
+            rubyAttribute                       { fg = s_blue,                                             },
+            rubyInterpolation                   { fg = s_green,                                            },
+            rubyInterpolationDelimiter          { fg = s_brown,                                            },
+            rubyStringDelimiter                 { fg = s_green,                                            },
+            rubyRegexp                          { fg = s_cyan,                                             },
+
+            sassidChar                          { fg = s_red,                                              },
+            sassClassChar                       { fg = s_orange,                                           },
+            sassInclude                         { fg = s_purple,                                           },
+            sassMixing                          { fg = s_purple,                                           },
+            sassMixinName                       { fg = s_blue,                                             },
+
+            vimfilerLeaf                        { fg = s_base05,                                           },
+            vimfilerNormalFile                  { fg = s_base05, bg = s_base00,                            },
+            vimfilerOpenedFile                  { fg = s_blue,                                             },
+            vimfilerClosedFile                  { fg = s_blue,                                             },
+
+            GitGutterAdd                        { fg = s_green,  bg = s_base00, gui = s_bold,              },
+            GitGutterChange                     { fg = s_blue,   bg = s_base00, gui = s_bold,              },
+            GitGutterDelete                     { fg = s_red,    bg = s_base00, gui = s_bold,              },
+            GitGutterChangeDelete               { fg = s_purple, bg = s_base00, gui = s_bold,              },
+
+            SignifySignAdd                      { fg = s_green,  bg = s_base00, gui = s_bold,              },
+            SignifySignChange                   { fg = s_blue,   bg = s_base00, gui = s_bold,              },
+            SignifySignDelete                   { fg = s_red,    bg = s_base00, gui = s_bold,              },
+            SignifySignChangeDelete             { fg = s_purple, bg = s_base00, gui = s_bold,              },
+            SignifySignDeleteFirstLine          { fg = s_red,    bg = s_base00, gui = s_bold,              },
+
+            xmlTag                              { fg = s_cyan,                                             },
+            xmlTagName                          { fg = s_base05,                                           },
+            xmlEndTag                           { fg = s_cyan,                                             },
+            Defx_filename_directory             { fg = s_blue,                                             },
+
+            CocErrorSign                        { fg = s_red,                                              },
+            CocWarningSign                      { fg = s_yellow,                                           },
+            CocInfoSign                         { fg = s_blue,                                             },
+            CocHintSign                         { fg = s_cyan,                                             },
+            CocErrorFloat                       { fg = s_red,                                              },
+            CocWarningFloat                     { fg = s_yellow,                                           },
+            CocInfoFloat                        { fg = s_blue,                                             },
+            CocHintFloat                        { fg = s_cyan,                                             },
+            CocDiagnosticsError                 { fg = s_red,                                              },
+            CocDiagnosticsWarning               { fg = s_yellow,                                           },
+            CocDiagnosticsInfo                  { fg = s_blue,                                             },
+            CocDiagnosticsHint                  { fg = s_cyan,                                             },
+            CocSelectedText                     { fg = s_purple,                                           },
+            CocCodeLens                         { fg = s_base04,                                           },
+
+
 
     -- Comment      { }, -- any comment
     -- ColorColumn  { }, -- used for the columns set with 'colorcolumn'
